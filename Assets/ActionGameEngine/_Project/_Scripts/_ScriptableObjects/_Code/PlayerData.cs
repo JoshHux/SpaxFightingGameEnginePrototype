@@ -148,13 +148,13 @@ namespace Spax
         }
 
         //public method to interface from
-        public StateFrameData GetCommand()
+        public StateFrameData GetCommand(bool newInput)
         {
 
-            return FindCommandFromState(currentState);
+            return FindCommandFromState(currentState, newInput);
         }
         //finds the command using previous inputs
-        public StateFrameData FindCommandFromState(StateFrameData state)
+        public StateFrameData FindCommandFromState(StateFrameData state, bool newInput)
         {
 
             int ret = -1;
