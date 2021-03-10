@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81985f130f7a61c499c74a5949960a32, type: 3}
+  m_Name: risingSlash
+  m_EditorClassIdentifier: 
+  stateName: 
+  stateID: 7
+  parentState: {fileID: 11400000, guid: ae70df4538533754f8e38a4e0cfb4bd4, type: 2}
+  enterStateConditions: 3
+  exitStateConditions: 0
+  stateConditions: 100
+  cancelCondition: 255
+  _transitions: []
+  duration: 42
+  Frames:
+  - atFrame: 5
+    Flags: 256
+    velocity: {x: -15, y: 20}
+    hitboxes: []
+  - atFrame: 21
+    Flags: 256
+    velocity: {x: 30, y: 20}
+    hitboxes: []
+  - atFrame: 22
+    Flags: 256
+    velocity: {x: 0, y: 5}
+    hitboxes: []
+  - atFrame: 23
+    Flags: 256
+    velocity: {x: -10, y: 5}
+    hitboxes: []

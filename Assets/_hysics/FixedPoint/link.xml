@@ -1,0 +1,5 @@
+<linker>
+   <assembly fullname="FixedPoint">
+	   <type fullname="Spax.*" preserve="all"/>
+   </assembly>
+</linker>

@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9265febfcc5ed3b45bdf56fddc58a3fb, type: 3}
+  m_Name: Jubei
+  m_EditorClassIdentifier: 
+  moveStats:
+    mass: 1
+    maxGroundSpeed: 15
+    maxWalkSpeed: 8
+    maxAirSpeed: 20
+    maxFallSpeed: 25
+    groundAcceleration: 3
+    walkAcceleration: 3
+    airAcceleration: 0.8
+    groundFriction: 1
+    airFriction: 0.3
+    jumpForce: 25
+    maxAirJumps: 1
+  moveCondition:
+    curAirJumps: 0
+    facingRight: 0
+    isGrounded: 1
+  maxHealth: 0
+  curHealth: 0
+  currentState: {fileID: 11400000, guid: f9804a2fa28b23349bdd79bc8ab88239, type: 2}
+  defaultState: {fileID: 11400000, guid: f9804a2fa28b23349bdd79bc8ab88239, type: 2}
+  allStates:
+  - {fileID: 11400000, guid: f9804a2fa28b23349bdd79bc8ab88239, type: 2}
+  - {fileID: 11400000, guid: 55bf0ad92bda4f84bbbcdad48f0a3c3a, type: 2}
+  - {fileID: 11400000, guid: 81eb5dce8ece3c44f862bce541c3edc9, type: 2}
+  - {fileID: 11400000, guid: 9159fb2920fd2814f802312f8dd1dc15, type: 2}
+  - {fileID: 11400000, guid: ae70df4538533754f8e38a4e0cfb4bd4, type: 2}
+  - {fileID: 11400000, guid: d951f69914975b841b86b4df93dd3e5e, type: 2}
+  - {fileID: 11400000, guid: 20055c2020590b547a7e5da02afd95e0, type: 2}
+  - {fileID: 11400000, guid: c8cc3d417972cf64e95da80e1f144773, type: 2}
+  - {fileID: 11400000, guid: 3b3355c27ef98be48813aeb16daa4994, type: 2}
+  - {fileID: 11400000, guid: ef154041c1cd0b740930d4487ae9a769, type: 2}
+  - {fileID: 11400000, guid: 287f5400a49645240b8ce3df30dc7a48, type: 2}
+  - {fileID: 11400000, guid: a9c800e3b3b192a4380358f03977c992, type: 2}
+  allAttackStates:
+  - {fileID: 11400000, guid: d951f69914975b841b86b4df93dd3e5e, type: 2}
+  inputRecorder:
+    prevInput:
+      prevInputs:
+      - direction: 1
+        buttons: 0
+      - direction: 4
+        buttons: 0
+      - direction: 1
+        buttons: 0
+      - direction: 4
+        buttons: 0
+      - direction: 1
+        buttons: 0
+      - direction: 2
+        buttons: 0
+      - direction: 1
+        buttons: 0
+      - direction: 4
+        buttons: 0
+      - direction: 1
+        buttons: 0
+      - direction: 2
+        buttons: 0
+      prevInputsCode:
+      - framesHeld: 49
+        code: 
+        inputCode: 11
+      - framesHeld: 6
+        code: 
+        inputCode: 20
+      - framesHeld: 128
+        code: 
+        inputCode: 19
+      - framesHeld: 8
+        code: 
+        inputCode: 20
+      - framesHeld: 41
+        code: 
+        inputCode: 19
+      - framesHeld: 4
+        code: 
+        inputCode: 12
+      - framesHeld: 42
+        code: 
+        inputCode: 11
+      - framesHeld: 5
+        code: 
+        inputCode: 13
+      - framesHeld: 30
+        code: 
+        inputCode: 11
+      - framesHeld: 5
+        code: 
+        inputCode: 13
+      - framesHeld: 18
+        code: 
+        inputCode: 11
+      - framesHeld: 13
+        code: 
+        inputCode: 13
+      - framesHeld: 56
+        code: 
+        inputCode: 11
+      - framesHeld: 7
+        code: 
+        inputCode: 20
+      - framesHeld: 36
+        code: 
+        inputCode: 19
+      - framesHeld: 7
+        code: 
+        inputCode: 12
+      - framesHeld: 30
+        code: 
+        inputCode: 11
+      - framesHeld: 7
+        code: 
+        inputCode: 20
+      - framesHeld: 25
+        code: 
+        inputCode: 19
+      - framesHeld: 11
+        code: 
+        inputCode: 12
+      arrayPos: 2
+      codeArrayPos: 2
+  commandList:
+    moveList:
+    - moveName: Stinger
+      command: 040800000c0000000202000002010000
+      state: 6
+      condition: 4
+    - moveName: Rising Slash
+      command: 0408000004020000020100000a000000
+      state: 7
+      condition: 4
+    - moveName: Slash
+      command: 04100000
+      state: 8
+      condition: 1281
+    - moveName: jab
+      command: 04080000
+      state: 5
+      condition: 769
+    - moveName: Running
+      command: 0d0000000b0000000c000000
+      state: 9
+      condition: 320
+    - moveName: Walk
+      command: 0c000000
+      state: 11
+      condition: 320
+    - moveName: Turnaround
+      command: 10000000
+      state: 10
+      condition: 320
+  cancelCondition: -1

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81985f130f7a61c499c74a5949960a32, type: 3}
+  m_Name: grounded
+  m_EditorClassIdentifier: 
+  stateName: Yuuki_Idle
+  stateID: 0
+  parentState: {fileID: 11400000, guid: 9159fb2920fd2814f802312f8dd1dc15, type: 2}
+  enterStateConditions: 0
+  exitStateConditions: 0
+  stateConditions: 36
+  cancelCondition: -1
+  _transitions:
+  - Enabled: 1
+    Target: {fileID: 11400000, guid: 81eb5dce8ece3c44f862bce541c3edc9, type: 2}
+    TargetFrame: 0
+    MinFrame: 0
+    meterReq: 0
+    Conditions: 000800001000000000001000
+    inputConditions: 0
+  - Enabled: 1
+    Target: {fileID: 11400000, guid: a9c800e3b3b192a4380358f03977c992, type: 2}
+    TargetFrame: 0
+    MinFrame: 0
+    meterReq: 0
+    Conditions: 
+    inputConditions: 12
+  duration: 0
+  Frames: []

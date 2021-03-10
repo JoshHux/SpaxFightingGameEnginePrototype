@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d2af346310b0b44a073131e52ca0d9, type: 3}
+  m_Name: Kyoko
+  m_EditorClassIdentifier: 
+  stats:
+    mass: 1
+    groundAcceleration:
+      _serializedValue: 4294967296
+    airAcceleration:
+      _serializedValue: 8589934592
+    maxGroundSpeed:
+      _serializedValue: 42949672960
+    maxAirSpeed:
+      _serializedValue: 42949672960
+    groundFriction:
+      _serializedValue: 4294967296
+    airFriction:
+      _serializedValue: 4294967296
+    maxAirJumps: 1
+    jumpForce:
+      _serializedValue: 4294967296
+  cond:
+    isGrounded: 1
+    isMoving: 0
+    velocity:
+      x:
+        _serializedValue: 0
+      y:
+        _serializedValue: 1
+    currentAirJumps: 0
+    wallJumpRef: 0
+    facing: 1

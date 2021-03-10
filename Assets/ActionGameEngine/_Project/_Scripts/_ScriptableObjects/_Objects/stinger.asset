@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81985f130f7a61c499c74a5949960a32, type: 3}
+  m_Name: stinger
+  m_EditorClassIdentifier: 
+  stateName: Yuuki_Stinger
+  stateID: 6
+  parentState: {fileID: 11400000, guid: ae70df4538533754f8e38a4e0cfb4bd4, type: 2}
+  enterStateConditions: 3
+  exitStateConditions: 0
+  stateConditions: 64
+  cancelCondition: 0
+  _transitions: []
+  duration: 29
+  Frames:
+  - atFrame: 11
+    Flags: 256
+    velocity: {x: 10, y: 0}
+    hitboxes: []
+  - atFrame: 12
+    Flags: 768
+    velocity: {x: 50, y: 0}
+    hitboxes:
+    - priority: 0
+      duration: 6
+      offset: {x: 2, y: 1}
+      size: {x: 3, y: 1}
+      launchAngle: 0
+      launchForce: 0
+      damage: 0
+      hitstop: 10
+      hitstun: 0
+      blockstun: 0
+      type: 0
+      onHitCancel: 0
+  - atFrame: 17
+    Flags: 768
+    velocity: {x: 40, y: 0}
+    hitboxes: []
+  - atFrame: 19
+    Flags: 768
+    velocity: {x: 25, y: 0}
+    hitboxes: []
+  - atFrame: 21
+    Flags: 768
+    velocity: {x: 10, y: 0}
+    hitboxes: []
+  - atFrame: 24
+    Flags: 768
+    velocity: {x: 0, y: 0}
+    hitboxes: []
