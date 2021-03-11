@@ -46,94 +46,92 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef154041c1cd0b740930d4487ae9a769, type: 2}
   - {fileID: 11400000, guid: 287f5400a49645240b8ce3df30dc7a48, type: 2}
   - {fileID: 11400000, guid: a9c800e3b3b192a4380358f03977c992, type: 2}
-  allAttackStates:
-  - {fileID: 11400000, guid: d951f69914975b841b86b4df93dd3e5e, type: 2}
   inputRecorder:
     prevInput:
       prevInputs:
       - direction: 1
         buttons: 0
-      - direction: 4
+      - direction: 1
+        buttons: 2
+      - direction: 1
         buttons: 0
+      - direction: 1
+        buttons: 2
+      - direction: 1
+        buttons: 0
+      - direction: 1
+        buttons: 2
       - direction: 1
         buttons: 0
       - direction: 4
         buttons: 0
       - direction: 1
         buttons: 0
-      - direction: 2
-        buttons: 0
       - direction: 1
-        buttons: 0
-      - direction: 4
-        buttons: 0
-      - direction: 1
-        buttons: 0
-      - direction: 2
-        buttons: 0
+        buttons: 2
       prevInputsCode:
-      - framesHeld: 49
-        code: 
-        inputCode: 11
-      - framesHeld: 6
-        code: 
-        inputCode: 20
-      - framesHeld: 128
-        code: 
-        inputCode: 19
-      - framesHeld: 8
-        code: 
-        inputCode: 20
-      - framesHeld: 41
-        code: 
-        inputCode: 19
-      - framesHeld: 4
-        code: 
-        inputCode: 12
-      - framesHeld: 42
-        code: 
-        inputCode: 11
-      - framesHeld: 5
-        code: 
-        inputCode: 13
-      - framesHeld: 30
-        code: 
-        inputCode: 11
-      - framesHeld: 5
-        code: 
-        inputCode: 13
-      - framesHeld: 18
-        code: 
-        inputCode: 11
-      - framesHeld: 13
-        code: 
-        inputCode: 13
-      - framesHeld: 56
-        code: 
-        inputCode: 11
-      - framesHeld: 7
-        code: 
-        inputCode: 20
-      - framesHeld: 36
-        code: 
-        inputCode: 19
-      - framesHeld: 7
-        code: 
-        inputCode: 12
-      - framesHeld: 30
-        code: 
-        inputCode: 11
-      - framesHeld: 7
-        code: 
-        inputCode: 20
-      - framesHeld: 25
-        code: 
-        inputCode: 19
       - framesHeld: 11
         code: 
-        inputCode: 12
-      arrayPos: 2
-      codeArrayPos: 2
+        inputCode: 18
+      - framesHeld: 5
+        code: 
+        inputCode: 4100
+      - framesHeld: 34
+        code: 
+        inputCode: 4099
+      - framesHeld: 7
+        code: 
+        inputCode: 4101
+      - framesHeld: 14
+        code: 
+        inputCode: 4099
+      - framesHeld: 7
+        code: 
+        inputCode: 4101
+      - framesHeld: 6
+        code: 
+        inputCode: 4099
+      - framesHeld: 8
+        code: 
+        inputCode: 4101
+      - framesHeld: 121
+        code: 
+        inputCode: 4099
+      - framesHeld: 33
+        code: 
+        inputCode: 20
+      - framesHeld: 8
+        code: 
+        inputCode: 19
+      - framesHeld: 2
+        code: 
+        inputCode: 36
+      - framesHeld: 0
+        code: 
+        inputCode: 35
+      - framesHeld: 9
+        code: 
+        inputCode: 132
+      - framesHeld: 0
+        code: 
+        inputCode: 131
+      - framesHeld: 8
+        code: 
+        inputCode: 36
+      - framesHeld: 13
+        code: 
+        inputCode: 35
+      - framesHeld: 15
+        code: 
+        inputCode: 20
+      - framesHeld: 6
+        code: 
+        inputCode: 2052
+      - framesHeld: 6
+        code: 
+        inputCode: 2051
+      arrayPos: 6
+      codeArrayPos: 8
   commandList:
     moveList:
     - moveName: Stinger
@@ -141,7 +139,7 @@ MonoBehaviour:
       state: 6
       condition: 4
     - moveName: Rising Slash
-      command: 0408000004020000020100000a000000
+      command: 04080000140000000204000002010000
       state: 7
       condition: 4
     - moveName: Slash
@@ -155,13 +153,5 @@ MonoBehaviour:
     - moveName: Running
       command: 0d0000000b0000000c000000
       state: 9
-      condition: 320
-    - moveName: Walk
-      command: 0c000000
-      state: 11
-      condition: 320
-    - moveName: Turnaround
-      command: 10000000
-      state: 10
       condition: 320
   cancelCondition: -1

@@ -66,18 +66,7 @@ namespace Spax.Input
 
                 if (!facingRight)
                 {
-                    //exact integer value to mask every left/right combination
-                    int mask = 1752;
-                    //Debug.Log(mask);
-
-                    //has the left/right directional input from the command
-                    int maskHelper = (mask & fromInput);
-
-                    //removes the left/right directional input
-                    fromInput -= maskHelper;
-
-                    mask = (maskHelper << 1 | maskHelper >> 1) & mask;
-                    fromInput |= mask;
+                    fromInput = InputCode.FlipBackForth(fromInput);
                     //Debug.Log("facing left :: " + (InputCodeFlags)mask);
                 }
 

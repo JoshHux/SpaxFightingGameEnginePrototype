@@ -6,17 +6,10 @@ using Spax.Input;
 
 namespace Spax.StateMachine
 {
-
+[Flags]
     public enum TransitionCondition : uint
     {
-        //ON_END = 0,  // 0
-        JUMP = 1 << 0,  // 1
-        ACTION1 = 1 << 1,  // 2
-        ACTION2 = 1 << 2,  // 4
-        ACTION3 = 1 << 3,  // 8
-        ACTION4 = 1 << 4,  // 16
-        ACTION5 = 1 << 5,  // 32
-        ACTION6 = 1 << 6,  // 64
+        
         BUTTON_PRESSED = 1 << 11,
         BUTTON_RELEASED = 1 << 12,
         GROUNDED = 1 << 14,

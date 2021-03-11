@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81985f130f7a61c499c74a5949960a32, type: 3}
   m_Name: risingSlash
   m_EditorClassIdentifier: 
-  stateName: 
+  stateName: Yuuki_RisingSlash
   stateID: 7
   parentState: {fileID: 11400000, guid: ae70df4538533754f8e38a4e0cfb4bd4, type: 2}
   enterStateConditions: 3

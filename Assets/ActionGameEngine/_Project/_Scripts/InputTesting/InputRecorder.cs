@@ -199,6 +199,7 @@ namespace Spax.Input
             List<int> ret = new List<int>();
 
             int index = codeArrayPos;
+            int endInd = this.IncrementByPos(codeArrayPos, true);
 
             string debug = "";
 
@@ -210,7 +211,9 @@ namespace Spax.Input
 
 
             //guarentees at least 2 elements
-            do
+            //do
+            while (index != endInd && prevInputsCode[index].framesHeld <= 7)
+
             {
                 toAdd = prevInputsCode[index].inputCode;
                 if (toAdd < 1)
@@ -225,8 +228,7 @@ namespace Spax.Input
                 //Debug.Log("making array: " + toAdd.Length);
 
                 index = this.DecrementByPos(index, true);
-            } while (index != codeArrayPos && prevInputsCode[index].framesHeld <= 7);
-
+            }
             //Debug.Log(debug);
             return ret.ToArray();
         }
@@ -249,6 +251,25 @@ namespace Spax.Input
         public short framesHeld;
         public string code;
         public int inputCode;
+
+        //call this to flip backwards and forwards for the inputcode
+        public static int FlipBackForth(int code)
+        {
+            //exact integer value to mask every left/right combination
+            int mask = 1752;
+            //Debug.Log(mask);
+
+            //has the left/right directional input from the command
+            int maskHelper = (mask & code);
+
+            //removes the left/right directional input
+            code -= maskHelper;
+
+            mask = (maskHelper << 1 | maskHelper >> 1) & mask;
+            code |= mask;
+            //Debug.Log("facing left :: " + (InputCodeFlags)mask);
+            return code;
+        }
     }
     //using neither RELEASED not PRESSED flag indicates command normal
     [Flags]
@@ -273,5 +294,7 @@ namespace Spax.Input
         X = 1 << 16,
         Y = 1 << 17,
         Z = 1 << 18,
+        //only for transitioning states, doesn't have to do with input motions
+        CURRENTLY_HELD = 1 << 19,
     }
 }

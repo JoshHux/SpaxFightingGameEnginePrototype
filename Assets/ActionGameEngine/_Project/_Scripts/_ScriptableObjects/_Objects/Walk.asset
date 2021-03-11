@@ -27,5 +27,6 @@ MonoBehaviour:
     meterReq: 0
     Conditions: 
     inputConditions: 10
+    cancelCondition: 0
   duration: 0
   Frames: []

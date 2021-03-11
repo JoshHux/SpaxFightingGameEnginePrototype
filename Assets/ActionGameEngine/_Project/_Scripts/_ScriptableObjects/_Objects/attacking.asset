@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81985f130f7a61c499c74a5949960a32, type: 3}
   m_Name: attacking
   m_EditorClassIdentifier: 
-  stateName: STTACKING
+  stateName: ATTACKING
   stateID: 4
   parentState: {fileID: 0}
   enterStateConditions: 0
@@ -25,6 +25,14 @@ MonoBehaviour:
     TargetFrame: 0
     MinFrame: 0
     meterReq: 0
-    Conditions: 00000100
+    Conditions: 0000010000400000
+    inputConditions: 0
+  - Enabled: 0
+    Target: {fileID: 11400000, guid: 55bf0ad92bda4f84bbbcdad48f0a3c3a, type: 2}
+    TargetFrame: 0
+    MinFrame: 0
+    meterReq: 0
+    Conditions: 0000010000800000
+    inputConditions: 0
   duration: 0
   Frames: []

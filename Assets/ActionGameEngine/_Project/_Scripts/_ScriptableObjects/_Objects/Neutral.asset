@@ -18,7 +18,7 @@ MonoBehaviour:
   enterStateConditions: 0
   exitStateConditions: 0
   stateConditions: 32
-  cancelCondition: 255
+  cancelCondition: -1
   _transitions: []
   duration: 0
   Frames: []

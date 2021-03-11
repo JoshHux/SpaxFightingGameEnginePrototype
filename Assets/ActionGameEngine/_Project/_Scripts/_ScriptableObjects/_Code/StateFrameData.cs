@@ -21,6 +21,7 @@ namespace Spax.StateMachine
             public uint meterReq;
             public List<TransitionCondition> Conditions;
             public InputCodeFlags inputConditions;
+            public CancelCondition cancelCondition;
 
             public TransitionCondition GetConditions()
             {
@@ -36,7 +37,7 @@ namespace Spax.StateMachine
 
             }
 
-            
+
         }
 
 

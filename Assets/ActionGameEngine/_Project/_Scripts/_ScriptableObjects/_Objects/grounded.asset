@@ -21,18 +21,20 @@ MonoBehaviour:
   cancelCondition: -1
   _transitions:
   - Enabled: 1
-    Target: {fileID: 11400000, guid: 81eb5dce8ece3c44f862bce541c3edc9, type: 2}
-    TargetFrame: 0
-    MinFrame: 0
-    meterReq: 0
-    Conditions: 000800001000000000001000
-    inputConditions: 0
-  - Enabled: 1
     Target: {fileID: 11400000, guid: a9c800e3b3b192a4380358f03977c992, type: 2}
     TargetFrame: 0
     MinFrame: 0
     meterReq: 0
     Conditions: 
-    inputConditions: 12
+    inputConditions: 524296
+    cancelCondition: 0
+  - Enabled: 1
+    Target: {fileID: 11400000, guid: 287f5400a49645240b8ce3df30dc7a48, type: 2}
+    TargetFrame: 0
+    MinFrame: 0
+    meterReq: 0
+    Conditions: 
+    inputConditions: 524304
+    cancelCondition: 0
   duration: 0
   Frames: []

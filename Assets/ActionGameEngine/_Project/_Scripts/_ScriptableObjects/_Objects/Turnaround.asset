@@ -17,7 +17,7 @@ MonoBehaviour:
   parentState: {fileID: 11400000, guid: f9804a2fa28b23349bdd79bc8ab88239, type: 2}
   enterStateConditions: 0
   exitStateConditions: 0
-  stateConditions: 32
+  stateConditions: 40
   cancelCondition: 255
   _transitions:
   - Enabled: 0
@@ -27,16 +27,18 @@ MonoBehaviour:
     meterReq: 0
     Conditions: 
     inputConditions: 18
+    cancelCondition: 0
   - Enabled: 0
-    Target: {fileID: 11400000, guid: f9804a2fa28b23349bdd79bc8ab88239, type: 2}
+    Target: {fileID: 11400000, guid: a9c800e3b3b192a4380358f03977c992, type: 2}
     TargetFrame: 0
     MinFrame: 0
     meterReq: 0
     Conditions: 00000100
     inputConditions: 0
-  duration: 6
+    cancelCondition: 0
+  duration: 4
   Frames:
-  - atFrame: 5
+  - atFrame: 3
     Flags: 64
     velocity: {x: 0, y: 0}
     hitboxes: []

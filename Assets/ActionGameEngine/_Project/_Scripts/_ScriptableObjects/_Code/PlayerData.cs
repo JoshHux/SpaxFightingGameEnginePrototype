@@ -24,7 +24,6 @@ namespace Spax
         public StateFrameData defaultState;
 
         public StateFrameData[] allStates;
-        public StateFrameData[] allAttackStates;
 
         public InputRecorder inputRecorder;
         public MoveList commandList;
@@ -34,7 +33,7 @@ namespace Spax
         public void Initialize()
         {
             inputRecorder.Initialize();
-            currentState = defaultState;
+            this.AssignNewCurState(defaultState);
 
             int len = allStates.Length;
             for (int i = 0; i < len; i++)
@@ -76,8 +75,7 @@ namespace Spax
             {
                 return 1;
             }
-            else
-               if (moveCondition.curAirJumps < moveStats.maxAirJumps)
+            else if (moveCondition.curAirJumps < moveStats.maxAirJumps)
             {
                 return 2;
             }
@@ -148,20 +146,20 @@ namespace Spax
         }
 
         //public method to interface from
-        public StateFrameData GetCommand(bool newInput)
+        public StateFrameData GetCommand()
         {
 
-            return FindCommandFromState(currentState, newInput);
+            return FindCommandFromState();
         }
         //finds the command using previous inputs
-        public StateFrameData FindCommandFromState(StateFrameData state, bool newInput)
+        public StateFrameData FindCommandFromState()
         {
 
             int ret = -1;
             //Debug.Log(GetStringPrevInputs());
 
 
-            ret = commandList.FindCommand(this.GetStringPrevInputs(), moveCondition.facingRight, cancelCondition);
+            ret = commandList.FindCommand(this.GetStringPrevInputs(), moveCondition.facingRight, cancelCondition | (CancelCondition)((this.CanJump() / 2) << 5));
 
 
 
@@ -185,62 +183,53 @@ namespace Spax
             int len = srcState._transitions.Count;
 
             //gets current transition conditions
-            TransitionCondition curConditions = GetTransitionCondition(input);
+            TransitionCondition curConditions = GetTransitionCondition();
+            //if the timer is done
+            if (timerIsDone)
+            {
+                curConditions |= TransitionCondition.ON_END;
+            }
+
             for (int i = 0; i < len; i++)
             {
                 StateFrameData potenState = srcState._transitions[i].Target;
                 TransitionCondition compare = srcState._transitions[i].GetConditions();
                 InputCodeFlags inputCond = srcState._transitions[i].inputConditions;
+                CancelCondition cancelCond = srcState._transitions[i].cancelCondition;
                 if ((compare & (TransitionCondition.FULL_METER | TransitionCondition.HALF_METER | TransitionCondition.QUART_METER)) == 0)
                 {
 
-                    //if there is a button pressed condition
-                    if (((compare & TransitionCondition.BUTTON_PRESSED) > 0) && inputChanged && ((inputRecorder.GetPressedButtons() & (Button)compare) > 0))
-                    {
-                        compare ^= TransitionCondition.BUTTON_PRESSED | ((TransitionCondition)inputRecorder.GetPressedButtons() & compare);
-
-                    }
-
                     //if all the conditions are met
-                    if ((compare & curConditions) == compare)
-                    {
-                        compare = 0;
-                        //Debug.Log("transition :: " + currentState._transitions[i].Target.stateName);
-
-                    }
-
-                    //if the timer is done
-                    if (timerIsDone && (compare == TransitionCondition.ON_END))
-                    {
-                        //if the condiition that the state is done
-                        compare ^= TransitionCondition.ON_END;
-
-                    }
-
-                    if (compare == 0)
+                    if ((compare & curConditions) == compare && (cancelCond & this.cancelCondition) == cancelCond)
                     {
                         //get the last input change
                         int fromInput = (int)inputRecorder.GetLatestCode();
                         //flip 6 and 4 direction, if needed
                         if (!moveCondition.facingRight)
                         {
-                            //exact integer value to mask every left/right combination
-                            int mask = 1752;
-                            //Debug.Log(mask);
-
-                            //has the left/right directional input from the command
-                            int maskHelper = (mask & fromInput);
-
-                            //removes the left/right directional input
-                            fromInput -= maskHelper;
-
-                            mask = (maskHelper << 1 | maskHelper >> 1) & mask;
-                            fromInput |= mask;
-                            //Debug.Log("facing left :: " + (InputCodeFlags)mask);
+                            fromInput = InputCode.FlipBackForth(fromInput);
                         }
 
+                        bool initialCheck = ((inputCond & (InputCodeFlags)fromInput) == inputCond);
+                        bool freePass = false;
+
+                        if (!initialCheck && (inputCond & InputCodeFlags.CURRENTLY_HELD) > 0)
+                        {
+                            inputCond ^= InputCodeFlags.CURRENTLY_HELD;
+                            int codeFromInput = (((int)input.direction & 510) << 2) | ((int)input.buttons << 11);
+                            int inputCondSimple = ((int)inputCond >> 3) << 3;
+                            if (!moveCondition.facingRight)
+                            {
+                                codeFromInput = InputCode.FlipBackForth(codeFromInput);
+                            }
+
+                            freePass = ((codeFromInput & inputCondSimple) == inputCondSimple);
+                        }
+
+
+
                         //check it
-                        if ((inputCond & (InputCodeFlags)fromInput) == inputCond)
+                        if (inputCond == 0 || initialCheck || freePass)
                         {
                             //Debug.Log(compare);
                             return AssignNewCurState(potenState);
@@ -271,25 +260,30 @@ namespace Spax
             return currentState;
         }
 
-        private TransitionCondition GetTransitionCondition(SpaxInput input)
+        private TransitionCondition GetTransitionCondition()
         {
+            //Debug.Log("getting transition conditions :: ");
             TransitionCondition ret = 0;
 
             if (moveCondition.isGrounded)
             {
-
                 ret |= TransitionCondition.GROUNDED;
+                //Debug.Log("getting transition conditions :: grounded");
+
             }
             else
             {
                 ret |= TransitionCondition.AERIAL;
             }
-            ret |= (TransitionCondition)input.buttons;
+
+            //ret |= (TransitionCondition)input.buttons;
 
             if (this.CanJump() > 0)
             {
                 ret |= TransitionCondition.CANJUMP;
             }
+
+            //Debug.Log(ret);
 
             return ret;
         }

@@ -37,7 +37,7 @@ MonoBehaviour:
       launchAngle: 0
       launchForce: 0
       damage: 0
-      hitstop: 20
+      hitstop: 3
       hitstun: 0
       blockstun: 0
       type: 1

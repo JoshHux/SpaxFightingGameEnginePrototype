@@ -63,7 +63,8 @@ namespace Spax
             rb = GetComponent<FPRigidBody2D>();
             animator = GetComponent<Animator>();
             data.Initialize();
-            animator.SetBool("TransitionState", true);
+            this.ApplyNewState(data.GetState());
+            //animator.SetBool("TransitionState", true);
 
 
             stopTimer.onEnd += OnHitstopEnd;
@@ -102,17 +103,18 @@ namespace Spax
 
 
 
-
-            StateFrameData newState = data.TransitionState(!timer.IsTicking(), input);
-
-            //finding a command
-
+            StateFrameData newState = null;
             if (newInput)
             {
                 newState = data.GetCommand();
+            }
+            //finding a command
+            if (newState == null)
+            {
+                newState = data.TransitionState(!timer.IsTicking(), input);
+
 
             }
-
 
 
             if (newState != null)
@@ -192,26 +194,7 @@ namespace Spax
                         }
                     }
 
-                    /* if ((curCond & StateConditions.CAN_TURN) > 0)
-                     {
 
-                         //statement to change facing
-                         if (xInput < 0)
-                         {
-                             //face left
-                             sprite.transform.eulerAngles = new Vector3(0f, 0f, 0f);
-                             //sprite.flipX=true;
-                             data.moveCondition.facingRight = false;
-
-                         }
-                         else
-                         {
-                             //face right
-                             sprite.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-                             //sprite.flipX=false;
-                             data.moveCondition.facingRight = true;
-                         }
-                     }*/
                 }
 
                 //if the state applies friction
